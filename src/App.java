@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class App {
 
@@ -31,12 +31,16 @@ public class App {
         }
     }
 
-    public static String randomString(int n) {
-        String retval = null;
+    public static String randomString(int n) { // generates a random string from the alphabet {a, c, g, t} of length n
+        String retval = "";
+        Random rand = new Random();
 
-        for(int i=0; i<n; i++) { // where 
-
+        // create a string with randomized characters where n is the total number of characters
+        for(int i=0; i<n; i++) { 
+            retval = retval + "acgt".charAt(rand.nextInt(4)); // rand.nextInt() randomizes 
         }
+
+        System.out.println(retval);
 
         return retval;
     }
@@ -44,7 +48,7 @@ public class App {
     public static void main(String[] args) {
 
         // TODO: create a randomizer for characters
-        String characters = "tgtgtgtgcaccg";
+        String characters = randomString(5);
         String[] input = createSuffix(characters);
         
         System.out.println("Unsorted suffixes:");
