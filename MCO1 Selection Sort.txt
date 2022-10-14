@@ -1,15 +1,22 @@
+Selection Sort Pseudocode (sorts array of String)
+
+selectionSort(suffixes) // running time: ___ // using the data returned by createSuffix as parameter
+1: for i = 0 to suffixes.size - 1			// cost: O(n) // size is based on the total number of characters
+2:	for j = i + 1 to suffixes.size		// cost: O(n) // j is at the right of i
+3:		if suffixes[i].compareTo(suffixes[j]) > 0 // cost of compareTo(): O(nxm) where n = number of the strings, m = max length of the strings
+										  // checks whether suffixes[i] is lexicographically greater than suffixes[j]
+										  // i.e. suffixes[i] > suffixes[j]
+
+4:			tempString = suffixes[i]	 	    // store the value of suffixes[i] to a temporary String for swapping
+5:			suffixes[i] = suffixes[j] 	    // assign the value of suffixes[j] to suffixes[i]	  
+6:			suffixes[j] = tempString  	    // assign the value of tempString to suffixes[j]
+
+7:			tempInt = suffixes[i].getIndex()  // store the value of suffixes[i] index to a temporary int variable for swapping
+8:			suffixes[i].setIndex(suffixes[j]) // set the index of suffixes[j] to suffixes[i]	  
+9:			suffixes[j].setIndex(tempInt)     // set the value of tempString to suffixes[j] 
+
 createSuffix(String characters) // running time: O(n) 	// creates an array of suffixes
 1: String[] suffixes = new String[characters.length]	// array of strings with length = characters.length where suffixes will be stored
 2: for i = 0 to characters.length					// cost: O(n) 
 3:	suffixes[i] = characters.substring(i)			// the .substring() function returns the substring of characters variable i.e. "hello".substring(1) is "ello"
 4: return suffixes								// return array of String for selectionSort
-
-Selection Sort Pseudocode (sorts array of String)
-
-selectionSort(String[] arr) // running time: O(n) x O(n) = O(n^2) // using the data returned by createSuffix as parameter
-1: for i = 0 to arr.length - 1			// cost: O(n) 
-3:	for j = i + 1 to arr.length			// cost: O(n) // j is at the right of i
-4:		if arr[i].compareTo(arr[j]) > 0	// checks whether arr[i] is lexicographically greater than arr[j]
-5:			temp = arr[i]				// swap the values
-6:			arr[i] = arr[j]
-8:			arr[j] = temp
